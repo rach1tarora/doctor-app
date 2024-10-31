@@ -6,14 +6,14 @@ function App() {
     const [form, setForm] = useState({ patientName: '', doctorName: '', date: '' });
 
     useEffect(() => {
-        fetch('http://a139f2cbbdb534d7cb4de9be60b92c30-1768448488.us-east-1.elb.amazonaws.com/appointments')
+        fetch('http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments')
             .then(res => res.json())
             .then(data => setAppointments(data));
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://a139f2cbbdb534d7cb4de9be60b92c30-1768448488.us-east-1.elb.amazonaws.com/appointments', {
+        fetch('http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ function App() {
     };
 
     const handleDelete = (id) => {
-        fetch(`http://a139f2cbbdb534d7cb4de9be60b92c30-1768448488.us-east-1.elb.amazonaws.com/appointments/${id}`, {
+        fetch(`http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
