@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 
+const BACKEND_URL = 'http://localhost:3001';
+
 function App() {
     const [appointments, setAppointments] = useState([]);
     const [form, setForm] = useState({ patientName: '', doctorName: '', date: '' });
 
     useEffect(() => {
-        fetch('http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments')
+        fetch(`${BACKEND_URL}/appointments`)
             .then(res => res.json())
             .then(data => setAppointments(data));
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments', {
+        fetch(`${BACKEND_URL}/appointments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +27,7 @@ function App() {
     };
 
     const handleDelete = (id) => {
-        fetch(`http://a3c8565fcce7f4880899687dfbf4ba85-402226243.us-east-1.elb.amazonaws.com/appointments/${id}`, {
+        fetch(`${BACKEND_URL}/appointments/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
