@@ -1,0 +1,4 @@
+.vs/*
+backend/.env
+backend/node_modules
+Documentation/*
