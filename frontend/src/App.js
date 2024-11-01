@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = 'a501131cddf7d401cb0cbf62ad8a1922-703548157.us-east-1.elb.amazonaws.com';
 
 function App() {
     const [appointments, setAppointments] = useState([]);
