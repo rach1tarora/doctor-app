@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 
-const BACKEND_URL = 'a501131cddf7d401cb0cbf62ad8a1922-703548157.us-east-1.elb.amazonaws.com';
+//const BACKEND_URL = 'ab2b86ce1a9c049afb646a2e8c5b2dd8-335801688.us-east-1.elb.amazonaws.com';
 
 function App() {
     const [appointments, setAppointments] = useState([]);
     const [form, setForm] = useState({ patientName: '', doctorName: '', date: '' });
 
     useEffect(() => {
-        fetch(`${BACKEND_URL}/appointments`)
+        fetch('http://ab2b86ce1a9c049afb646a2e8c5b2dd8-335801688.us-east-1.elb.amazonaws.com/appointments')
             .then(res => res.json())
             .then(data => setAppointments(data));
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${BACKEND_URL}/appointments`, {
+        fetch('http://ab2b86ce1a9c049afb646a2e8c5b2dd8-335801688.us-east-1.elb.amazonaws.com/appointments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ function App() {
     };
 
     const handleDelete = (id) => {
-        fetch(`${BACKEND_URL}/appointments/${id}`, {
+        fetch(`http://ab2b86ce1a9c049afb646a2e8c5b2dd8-335801688.us-east-1.elb.amazonaws.com/appointments/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
