@@ -14,6 +14,7 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccountName: backend-sa
       containers:
         - name: backend
           image: 650251730587.dkr.ecr.us-east-1.amazonaws.com/backend:latest
